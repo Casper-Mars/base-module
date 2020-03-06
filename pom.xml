@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.r.base</groupId>
+    <artifactId>base</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <modules>
+        <module>common</module>
+        <module>payment</module>
+        <module>auth</module>
+    </modules>
+    <distributionManagement>
+        <repository>
+            <id>casper-local</id>
+            <name>casper-local</name>
+            <url>${maven-url}/repository/casper-local/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <!--自家模块的版本管理-->
+        <base-common.version>1.0-SNAPSHOT</base-common.version>
+
+
+        <!--三方依赖的版本管理-->
+        <spring-version>4.3.18.RELEASE</spring-version>
+        <lombok-version>1.16.6</lombok-version>
+        <okhttp-version>3.11.0</okhttp-version>
+        <javax-servlet-api>3.1.0</javax-servlet-api>
+        <commons-codec>1.13</commons-codec>
+        <slf4j-api>1.7.25</slf4j-api>
+        <junit-test-verison>4.12</junit-test-verison>
+        <aop-version>1.9.5</aop-version>
+        <fastjson-version>1.2.59</fastjson-version>
+        <maven-url>http://114.55.253.170</maven-url>
+        <alipay-sdk>4.8.10.ALL</alipay-sdk>
+        <paypal-version>LATEST</paypal-version>
+        <jdom-version>1.1.3</jdom-version>
+    </properties>
+
+    <dependencies>
+        <!--spring 框架依赖-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--aop-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aop-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aop-version}</version>
+        </dependency>
+        <!--lombak插件-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok-version}</version>
+        </dependency>
+
+        <!--javax-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax-servlet-api}</version>
+        </dependency>
+        <!--jdom-->
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom</artifactId>
+            <version>${jdom-version}</version>
+        </dependency>
+        <!--code-->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec}</version>
+        </dependency>
+        <!--sl4j-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api}</version>
+        </dependency>
+        <!--junit test-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-test-verison}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--阿里巴巴json库-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson-version}</version>
+        </dependency>
+
+    </dependencies>
+
+
+
+</project>

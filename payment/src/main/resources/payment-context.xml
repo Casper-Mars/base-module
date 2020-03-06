@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:aspectj-autoproxy/>
+    <bean name="configCheckAop" class="org.r.base.payment.aop.ConfigCheckAop"/>
+
+    <context:component-scan base-package="org.r.base.payment"/>
+    <context:property-placeholder
+            ignore-resource-not-found="true"
+            ignore-unresolvable="true"
+            location="classpath:/payment/config.properties"
+    />
+    <!--微信支付配置-->
+    <bean id="wechatPayConfig" class="org.r.base.payment.config.WechatPayConfig">
+        <property name="apiKey" value="${wechat.apiKey}"/>
+        <property name="appSecret" value="${wechat.appSecret}"/>
+        <property name="gatewayUrl" value="${wechat.gatewayUrl}"/>
+        <property name="refundUrl" value="${wechat.refundUrl}"/>
+        <property name="queryUrl" value="${wechat.queryUrl}"/>
+        <property name="mchid" value="${wechat.mchid}"/>
+        <property name="requestMethod" value="${wechat.requestMethod}"/>
+        <property name="appId" value="${wechat.appId}"/>
+        <property name="p12CertPath" value="${wechat.p12CertPath}"/>
+    </bean>
+
+    <!--阿里支付配置-->
+    <bean id="alipayConfig" class="org.r.base.payment.config.AlipayConfig">
+        <property name="appId" value="${alipay.appId}"/>
+        <property name="returnUrl" value="${alipay.returnUrl}"/>
+        <property name="outOfTime" value="${alipay.outOfTime}"/>
+        <property name="partner" value="${alipay.partner}"/>
+        <property name="privateKey" value="${alipay.privateKey}"/>
+        <property name="aliPublicKey" value="${alipay.aliPublicKey}"/>
+        <property name="inputCharset" value="${alipay.inputCharset}"/>
+        <property name="signType" value="${alipay.signType}"/>
+        <property name="sellerId" value="${alipay.sellerId}"/>
+        <property name="format" value="${alipay.format}"/>
+        <property name="gatewayUrl" value="${alipay.gatewayUrl}"/>
+    </bean>
+    <!--paypal支付配置-->
+    <bean id="paypalConfig" class="org.r.base.payment.config.PaypalConfig">
+        <property name="clientId" value="${paypal.clientId}"/>
+        <property name="clientSecret" value="${paypal.clientSecret}"/>
+        <property name="mode" value="${paypal.mode}"/>
+        <property name="currency" value="${paypal.currency}"/>
+    </bean>
+
+</beans>

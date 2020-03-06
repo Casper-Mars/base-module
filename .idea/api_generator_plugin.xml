@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="api-generator setting">
+    <option name="baseClass" value="" />
+    <option name="interfaceFilePaths" value="" />
+    <option name="markdownFiles" value="" />
+    <option name="outputFilePaths" value="" />
+  </component>
+</project>
