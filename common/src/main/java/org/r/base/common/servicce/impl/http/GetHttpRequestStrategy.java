@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
  * @author casper
  * @date 19-10-16 下午2:44
  **/
-@Service
 public class GetHttpRequestStrategy implements HttpRequestStrategy {
 
 

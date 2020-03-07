@@ -9,6 +9,7 @@ import org.r.base.common.enums.RequestMethodEnum;
 import org.r.base.common.pojo.RequestBo;
 import org.r.base.common.pojo.RespondBo;
 import org.r.base.common.servicce.HttpRequestService;
+import org.r.base.common.utils.HttpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -24,8 +25,6 @@ public class WechatAuthServiceImpl implements ThirdPartyAuthService {
     @Autowired
     private WechatConfig wechatConfig;
 
-    @Autowired
-    private HttpRequestService httpRequestService;
 
     /**
      * 用授权码执行第三方登录操作
@@ -41,7 +40,7 @@ public class WechatAuthServiceImpl implements ThirdPartyAuthService {
         RequestBo requestBo = new RequestBo();
         requestBo.setUrl(getTokenUrl(code));
         requestBo.setMethod(RequestMethodEnum.GET);
-        RespondBo respondBo = httpRequestService.doRequest(requestBo);
+        RespondBo respondBo = HttpUtils.doRequest(requestBo);
         System.out.println(respondBo);
 
         JSONObject jsonObject = JSONObject.parseObject((String) respondBo.getResult());
@@ -53,7 +52,7 @@ public class WechatAuthServiceImpl implements ThirdPartyAuthService {
         }
         /*获取用户信息*/
         requestBo.setUrl(getUserInfoUrl(thirdPartyInfoBO.getToken(), thirdPartyInfoBO.getOpenId()));
-        RespondBo info = httpRequestService.doRequest(requestBo);
+        RespondBo info = HttpUtils.doRequest(requestBo);
         JSONObject infoObj = JSONObject.parseObject((String) info.getResult());
         thirdPartyInfoBO.setAvatar(infoObj.getString("headimgurl"));
         thirdPartyInfoBO.setNickname(infoObj.getString("nickname"));

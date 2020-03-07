@@ -9,6 +9,7 @@ import org.r.base.common.pojo.ProtocolProvider;
 import org.r.base.common.pojo.RequestBo;
 import org.r.base.common.pojo.RespondBo;
 import org.r.base.common.servicce.HttpRequestService;
+import org.r.base.common.utils.HttpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,8 +30,6 @@ public class QqAuthServiceImpl implements ThirdPartyAuthService {
     @Autowired
     private QqConfig qqconfig;
 
-    @Autowired
-    private HttpRequestService httpRequestService;
 
     /**
      * 用授权码执行第三方登录操作
@@ -65,7 +64,7 @@ public class QqAuthServiceImpl implements ThirdPartyAuthService {
                 return null;
             }
         });
-        RespondBo respondBo = httpRequestService.doRequest(requestBo);
+        RespondBo respondBo = HttpUtils.doRequest(requestBo);
         System.out.println(respondBo);
         return null;
     }

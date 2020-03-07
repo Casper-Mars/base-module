@@ -9,6 +9,7 @@ import org.r.base.common.pojo.ProtocolProvider;
 import org.r.base.common.pojo.RequestBo;
 import org.r.base.common.pojo.RespondBo;
 import org.r.base.common.servicce.HttpRequestService;
+import org.r.base.common.utils.HttpUtils;
 import org.r.base.payment.config.WechatPayConfig;
 import org.r.base.payment.dto.NotifyDTO;
 import org.r.base.payment.entity.PayCommon;
@@ -51,8 +52,6 @@ public abstract class AbstractWechatServiceImpl implements PaymentService {
 
     @Autowired(required = false)
     protected WechatPayConfig wechatPayConfig;
-    @Autowired
-    private HttpRequestService httpRequestService;
 
 
     /**
@@ -272,7 +271,7 @@ public abstract class AbstractWechatServiceImpl implements PaymentService {
         }
         requestBo.setMethod(RequestMethodEnum.of(wechatPayConfig.getRequestMethod()));
         requestBo.setUrl(url);
-        return httpRequestService.doRequest(requestBo);
+        return HttpUtils.doRequest(requestBo);
     }
 
 

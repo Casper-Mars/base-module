@@ -2,7 +2,10 @@ package impl;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.r.base.auth.enums.ThirdPartyTypeEnum;
 import org.r.base.auth.pojo.ThirdPartyInfoBO;
+import org.r.base.auth.service.AuthServiceProvider;
+import org.r.base.auth.service.ThirdPartyAuthService;
 import org.r.base.auth.service.impl.QqAuthServiceImpl;
 import org.r.base.auth.service.impl.WechatAuthServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +24,10 @@ public class QqAuthServiceTest {
     @Test
     public void login() {
 
-        ThirdPartyInfoBO login = wechatAuthService.login("061Xm9yL1bPQw81OfNuL1f27yL1Xm9ym");
+        ThirdPartyAuthService thirdPartyAuthService = AuthServiceProvider.get(ThirdPartyTypeEnum.QQ);
+
+
+        ThirdPartyInfoBO login = thirdPartyAuthService.login("061Xm9yL1bPQw81OfNuL1f27yL1Xm9ym");
         System.out.println(login);
     }
 }

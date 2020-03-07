@@ -7,7 +7,7 @@
     <groupId>org.r.base</groupId>
     <artifactId>base</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <build>
         <plugins>
             <plugin>
@@ -35,7 +35,7 @@
 
     <properties>
         <!--自家模块的版本管理-->
-        <base-common.version>1.0-SNAPSHOT</base-common.version>
+        <base-common.version>1.0</base-common.version>
 
 
         <!--三方依赖的版本管理-->

@@ -52,7 +52,7 @@ public class PaymentServiceTest {
     String paySn = "POD20191016782539";
 
 
-    @Test
+//    @Test
     public void pay() throws PayException {
         PayCommon payCommon = new PayCommon(
                 paySn,
@@ -78,7 +78,7 @@ public class PaymentServiceTest {
     public void notifyCallBack() {
     }
 
-    @Test
+//    @Test
     public void refund() {
 
         RefundCommon refundCommon = new RefundCommon();
@@ -100,12 +100,12 @@ public class PaymentServiceTest {
         System.out.println(refund ? "退款成功" : "退款失败");
     }
 
-    @Test
+//    @Test
     public void refundNotifyCallBack() {
     }
 
 
-    @Test
+//    @Test
     public void query() throws PayException {
 
         QueryCommon queryCommon = new QueryCommon("PAYID-LWO2OPA7UN241053R845161L");

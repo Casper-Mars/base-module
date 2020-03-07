@@ -28,14 +28,11 @@ import java.security.NoSuchAlgorithmException;
  * @author casper
  * @date 19-10-16 下午3:02
  **/
-@Service
 @Slf4j
 public class DefaultHttpServiceImpl implements HttpRequestService {
 
 
-    @Autowired
     private PostHttpRequestStrategy postHttpRequestStrategy;
-    @Autowired
     private GetHttpRequestStrategy getHttpRequestStrategy;
 
 
@@ -49,12 +46,24 @@ public class DefaultHttpServiceImpl implements HttpRequestService {
     public HttpRequestStrategy getStrategy(RequestMethodEnum requestMethod) {
         HttpRequestStrategy tmp = null;
         switch (requestMethod) {
-            case GET:
+            case GET: {
+                synchronized (this) {
+                    if (getHttpRequestStrategy == null) {
+                        getHttpRequestStrategy = new GetHttpRequestStrategy();
+                    }
+                }
                 tmp = getHttpRequestStrategy;
                 break;
-            case POST:
+            }
+            case POST: {
+                synchronized (this) {
+                    if (postHttpRequestStrategy == null) {
+                        postHttpRequestStrategy = new PostHttpRequestStrategy();
+                    }
+                }
                 tmp = postHttpRequestStrategy;
                 break;
+            }
             case DELETE:
                 break;
             case PUT:
