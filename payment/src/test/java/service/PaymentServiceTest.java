@@ -52,7 +52,7 @@ public class PaymentServiceTest {
     String paySn = "POD20191016782539";
 
 
-//    @Test
+    @Test
     public void pay() throws PayException {
         PayCommon payCommon = new PayCommon(
                 paySn,
@@ -65,7 +65,7 @@ public class PaymentServiceTest {
         payCommon.setCancelUrl("http://47.244.62.252:18080/api/api/common/test");
         String pay = "";
 //            pay = amp.pay(payCommon);
-//            pay = wsp.pay(payCommon);
+            pay = wsp.pay(payCommon);
 //            pay = wmp.pay(payCommon);
 //            pay = pmpp.pay(payCommon);
 //        pay = pppp.pay(payCommon);

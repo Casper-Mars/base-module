@@ -271,6 +271,7 @@ public abstract class AbstractWechatServiceImpl implements PaymentService {
         }
         requestBo.setMethod(RequestMethodEnum.of(wechatPayConfig.getRequestMethod()));
         requestBo.setUrl(url);
+        requestBo.setMediaType("text/xml");
         return HttpUtils.doRequest(requestBo);
     }
 

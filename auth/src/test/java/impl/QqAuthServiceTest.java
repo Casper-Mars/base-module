@@ -24,10 +24,10 @@ public class QqAuthServiceTest {
     @Test
     public void login() {
 
-        ThirdPartyAuthService thirdPartyAuthService = AuthServiceProvider.get(ThirdPartyTypeEnum.QQ);
+        ThirdPartyAuthService thirdPartyAuthService = AuthServiceProvider.get(ThirdPartyTypeEnum.WEIXIN);
 
 
-        ThirdPartyInfoBO login = thirdPartyAuthService.login("061Xm9yL1bPQw81OfNuL1f27yL1Xm9ym");
+        ThirdPartyInfoBO login = thirdPartyAuthService.login("011P0XCZ1Ye6nV0GTLEZ1Yo7DZ1P0XCK");
         System.out.println(login);
     }
 }
