@@ -41,7 +41,11 @@ public class CasLocker {
         }
         try {
             container.run();
-        } finally {
+        } catch (Exception e){
+            
+            throw e;
+        }
+        finally {
             release(key);
         }
         return true;
