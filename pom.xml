@@ -46,7 +46,7 @@
         <javax-servlet-api>3.1.0</javax-servlet-api>
         <commons-codec>1.13</commons-codec>
         <slf4j-api>1.7.25</slf4j-api>
-        <junit-test-verison>4.12</junit-test-verison>
+        <junit-test-verison>4.13.1</junit-test-verison>
         <aop-version>1.9.5</aop-version>
         <fastjson-version>1.2.59</fastjson-version>
         <maven-url>http://114.55.253.170</maven-url>
